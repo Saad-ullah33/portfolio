@@ -3,7 +3,7 @@ import img2 from "../assets/img2.jpg";
 
 import About from "./about";
 import Skills from "./skills";
-import Portfolio from "./Portfolio";
+// import Portfolio from "./Portfolio";
 import Qualification from "./qualification";
 import Contact from "./contact";
 
