@@ -35,24 +35,24 @@ export default function Contact() {
           console.log(err);
         }
       );
-       const templateParams = {
-    user_name: name,      // From your form input
-    user_email: email,    // From your form input
-    user_message: message // From your form input
-  };
+  //      const templateParams = {
+  //   user_name: name,      // From your form input
+  //   user_email: email,    // From your form input
+  //   user_message: message // From your form input
+  // };
 
   // Send auto-reply email
-  emailjs.send(
-    'service_donoer6',        // Your service ID
-    'template_b39iudh',    // The template you created for auto-reply
-    templateParams,
-    'aJJf4EzZgBksB-f-V'         // Your EmailJS public key
-  ).then(() => {
-    alert('Message sent! You should receive an auto-reply shortly.');
-  }, (error) => {
-    console.log('Failed to send:', error);
-  });
-};
+//   emailjs.send(
+//     'service_donoer6',        // Your service ID
+//     'template_b39iudh',    // The template you created for auto-reply
+//     templateParams,
+//     'aJJf4EzZgBksB-f-V'         // Your EmailJS public key
+//   ).then(() => {
+//     alert('Message sent! You should receive an auto-reply shortly.');
+//   }, (error) => {
+//     console.log('Failed to send:', error);
+//   });
+// };
   };
 
   // Animation variants
