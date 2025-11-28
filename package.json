@@ -15,7 +15,6 @@
     "@emotion/styled": "^11.14.1",
     "@fontsource/caveat": "^5.2.8",
     "@mui/material": "^7.3.5",
-    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.554.0",
     "react": "^19.2.0",
