@@ -94,7 +94,7 @@ function Qualification() {
               {/* Center Dot */}
               <motion.div
                 className={`absolute sm:left-1/2 sm:top-1/2 sm:-translate-y-1/2 sm:-translate-x-1/2
-                            left-4 top-4 -translate-x-0 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-md z-10`}
+                            left-4 top-4 -translate-x-0 w-4 h-4 bg-gray-600 rounded-full border-4 border-white shadow-md z-10`}
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
