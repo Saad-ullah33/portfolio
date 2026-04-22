@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { Mail, Phone } from "lucide-react";
 import { motion } from "framer-motion";
-// New
 import emailjs from "@emailjs/browser";
 
-
-
 export default function Contact() {
-  // Form state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -15,13 +11,12 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send email using EmailJS
     emailjs
       .send(
-        "service_donoer6",      // replace with your service ID
-        "template_vpp5u6d",     // replace with your template ID
+        "service_donoer6",
+        "template_vpp5u6d",
         { name, email, message },
-        "aJJf4EzZgBksB-f-V"     // replace with your public key
+        "aJJf4EzZgBksB-f-V"
       )
       .then(
         () => {
@@ -35,79 +30,89 @@ export default function Contact() {
           console.log(err);
         }
       );
-  //      const templateParams = {
-  //   user_name: name,      // From your form input
-  //   user_email: email,    // From your form input
-  //   user_message: message // From your form input
-  // };
-
-  // Send auto-reply email
-//   emailjs.send(
-//     'service_donoer6',        // Your service ID
-//     'template_b39iudh',    // The template you created for auto-reply
-//     templateParams,
-//     'aJJf4EzZgBksB-f-V'         // Your EmailJS public key
-//   ).then(() => {
-//     alert('Message sent! You should receive an auto-reply shortly.');
-//   }, (error) => {
-//     console.log('Failed to send:', error);
-//   });
-// };
   };
 
-  // Animation variants
   const leftAnimation = {
-    hidden: { x: "-50%", opacity: 0 },
-    visible: { x: "0%", opacity: 1, transition: { duration: 0.8 } },
+    hidden: { x: -50, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.6 } },
   };
 
   const rightAnimation = {
-    hidden: { x: "50%", opacity: 0 },
-    visible: { x: "0%", opacity: 1, transition: { duration: 0.8 } },
+    hidden: { x: 50, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.6 } },
   };
 
+  const cardStyle =
+    "flex items-start gap-4 p-5 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 hover:shadow-cyan-500/20 transition-all duration-300";
+
+  const iconStyle = "text-cyan-400 shrink-0 mt-1";
+
   return (
-    <section id="contact" className="py-9 bg-wheat  px-4 ">
-      <div className="max-w-5xl mx-auto bg-wheat">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold">Contact Me</h2>
-          <p className="text-gray-600 mt-2">Get in touch</p>
+    <section
+      id="contact"
+      className="relative py-20 sm:py-24 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20
+      bg-[#0f172a] text-white overflow-hidden"
+    >
+      {/* GLOW */}
+      <div className="absolute top-0 left-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-cyan-500/10 blur-2xl rounded-full -translate-x-1/2"></div>
+
+      {/* TOP BORDER */}
+      <div className="absolute top-0 left-0 w-full h-px bg-white/5"></div>
+
+      <div className="max-w-6xl mx-auto relative">
+
+        {/* TITLE */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-cyan-400">
+            Contact Me
+          </h2>
+          <p className="text-gray-400 mt-2">
+            Get in touch
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 bg-wheat ">
-          {/* Left Column: Contact Info */}
+        <div className="grid md:grid-cols-2 gap-10">
+
+          {/* LEFT */}
           <motion.div
-            className="space-y-6 flex flex-col bg-wheat"
             variants={leftAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
+            className="space-y-6"
           >
-            <h3 className="text-xl font-semibold">Talk to me</h3>
+            <h3 className="text-xl font-semibold text-white">
+              Talk to me
+            </h3>
 
-            <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105">
-              <Mail className="text-gray-600 bg-white" />
-              <div className="bg-white">
-                <h4 className="font-medium bg-white">Email</h4>
-                <p className="text-gray-600 bg-white">msaadullah541@gmail.com</p>
+            {/* EMAIL */}
+            <div className={cardStyle}>
+              <Mail className={iconStyle} />
+              <div>
+                <h4 className="font-medium text-white">Email</h4>
+                <p className="text-gray-400 text-sm">
+                  msaadullah541@gmail.com
+                </p>
                 <a
                   href="mailto:msaadullah541@gmail.com"
-                  className="text-sm text-gray-600 bg-white hover:underline"
+                  className="text-cyan-400 text-sm hover:underline"
                 >
                   Write me →
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105">
-              <Phone className="text-gray-600 bg-white" />
-              <div className="bg-white">
-                <h4 className="font-medium bg-white">Whatsapp</h4>
-                <p className="text-gray-600 bg-white">+92 300 7695930</p>
+            {/* WHATSAPP */}
+            <div className={cardStyle}>
+              <Phone className={iconStyle} />
+              <div>
+                <h4 className="font-medium text-white">WhatsApp</h4>
+                <p className="text-gray-400 text-sm">
+                  +92 300 7695930
+                </p>
                 <a
-                  href="https://wa.me/+923007695930"
-                  className="text-sm text-gray-600 bg-white hover:underline"
+                  href="https://wa.me/923007695930"
+                  className="text-cyan-400 text-sm hover:underline"
                 >
                   Write me →
                 </a>
@@ -115,48 +120,63 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right Column: Form */}
+          {/* FORM */}
           <motion.div
-            className="space-y-6"
             variants={rightAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
           >
-            <h3 className="text-xl font-semibold mb-4">Write me your thoughts</h3>
+            <h3 className="text-xl font-semibold mb-6 text-white">
+              Write your message
+            </h3>
+
             <form onSubmit={handleSubmit} className="space-y-4">
+
               <input
                 type="text"
                 placeholder="Your Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className="w-full p-3 rounded-xl bg-white/5 border border-white/10
+                text-white placeholder-gray-400
+                focus:outline-none focus:border-cyan-400"
                 required
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring focus:ring-gray-300"
               />
+
               <input
                 type="email"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-3 rounded-xl bg-white/5 border border-white/10
+                text-white placeholder-gray-400
+                focus:outline-none focus:border-cyan-400"
                 required
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring focus:ring-gray-300"
               />
+
               <textarea
-                placeholder="Write your thoughts here"
+                rows={5}
+                placeholder="Write your thoughts..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                rows={4}
+                className="w-full p-3 rounded-xl bg-white/5 border border-white/10
+                text-white placeholder-gray-400
+                focus:outline-none focus:border-cyan-400"
                 required
-                className="w-full p-3 border rounded-lg bg-white focus:outline-none focus:ring focus:ring-gray-300"
-              ></textarea>
+              />
+
               <button
                 type="submit"
-                className="w-full py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition"
+                className="w-full py-3 rounded-xl bg-cyan-500 text-black font-semibold
+                hover:bg-cyan-400 transition-all duration-300 shadow-lg"
               >
                 Send Message
               </button>
+
             </form>
           </motion.div>
+
         </div>
       </div>
     </section>

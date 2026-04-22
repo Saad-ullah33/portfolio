@@ -1,5 +1,8 @@
-*{
-  margin: 0;
-  padding: 0;
-  background-color: wheat;
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }

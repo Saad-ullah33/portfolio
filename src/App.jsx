@@ -1,25 +1,25 @@
-import './App.css'
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 
-import NavBar from './components/NavBar'
-import Home from "./pages/home.jsx"
-import Footer from "./pages/footer.jsx"
-import "@fontsource/caveat"; 
+import NavBar from "./components/NavBar";
+import Home from "./pages/home.jsx";
+import Portfolio from "./pages/portfolio.jsx";
+import ProjectDetails from "./pages/ProjectDetails.jsx";
+import Footer from "./pages/footer.jsx";
 
 function App() {
   return (
     <>
       <NavBar />
 
-      {/* Only one route because everything is on Home */}
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/project/:id" element={<ProjectDetails />} />
       </Routes>
-            <Footer />
 
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

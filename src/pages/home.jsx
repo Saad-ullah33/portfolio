@@ -1,73 +1,126 @@
 import React from "react";
-import img2 from "../assets/img2.jpg";
+import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
+
+import img2 from "../assets/IMG_20260407_120910-removebg-preview (2).png";
 
 import About from "./about";
 import Skills from "./skills";
-// import Portfolio from "./Portfolio";
 import Qualification from "./qualification";
 import Contact from "./contact";
+import Portfolio from "./portfolio";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 },
+};
 
 const Home = () => {
-  const handleClick = () => {
-    const section = document.getElementById("contact");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
-    <div id="home" className="overflow-x-hidden w-full">
+    <div
+      id="home"
+      className="w-full overflow-x-hidden bg-[#0f172a] text-white"
+      style={{ maxWidth: "100vw" }} // 🔥 HARD STOP OVERFLOW
+    >
+      {/* HERO */}
+      <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 py-16 md:py-20 relative overflow-hidden">
 
-      {/* HERO SECTION */}
-      <section className="w-full min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 gap-12 md:gap-[250px] bg-wheat">
-
-        {/* Left Content */}
-        <div className="text-center md:text-left max-w-md px-1">
-          <h1 className="font-bold text-gray-700 text-3xl md:text-4xl">
-            Muhammad Saad-Ullah
+        {/* LEFT */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.8 }}
+          className="w-full md:w-1/2 space-y-6 text-center md:text-left"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
+            Hi, I'm{" "}
+            <span className="text-cyan-400">Saad-Ullah</span>
           </h1>
 
-          <div className="flex md:justify-start justify-center items-center gap-2 pt-2">
-            <span className="w-12 md:w-16 h-px bg-gray-400"></span>
-            <h3 className="text-lg md:text-xl font-semibold text-gray-700">
-              Full Stack Software Engineer
-            </h3>
-          </div>
+          <h2 className="text-lg sm:text-xl md:text-2xl text-gray-300">
+            <Typewriter
+              options={{
+                strings: [
+                  "Full Stack Software Engineer",
+                  "AI Enthusiast",
+                  "Problem Solver",
+                ],
+                autoStart: true,
+                loop: true,
+                delay: 60,
+              }}
+            />
+          </h2>
 
-          <p className="pt-3 text-gray-700 font-caveat text-lg md:text-xl leading-relaxed">
-            "Every challenge is a chance to grow, and I strive to deliver
-            excellent work while learning and improving every day."
+          <p className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+            I craft fast, scalable, and visually clean web applications.
+            Focused on performance, usability, and solving real-world problems.
           </p>
 
-          <button
-            onClick={handleClick}
-            className="px-4 py-2 bg-wheat text-gray-800 font-semibold rounded-full shadow-md mt-4
-                       hover:bg-gray-700 hover:text-white transition-all duration-300 flex items-center gap-3 md:gap-7"
-          >
-            Say Hello 👋
-          </button>
-        </div>
+          {/* BUTTON */}
+          <div className="flex justify-center md:justify-start">
+            <motion.button
+  onClick={scrollToContact}
+  whileHover={{ scale: 1.06 }}
+  whileTap={{ scale: 0.95 }}
+  className="px-7 py-3 bg-cyan-500 text-black font-semibold rounded-full shadow-lg hover:bg-cyan-400 transition-all duration-300 flex items-center gap-2"
+>
+  Say Hello
 
-        {/* Right Image */}
-        <div className="flex-shrink-0 mt-6 md:mt-0">
-          <img
+  <motion.span
+    animate={{ rotate: [0, 20, -10, 20, 0] }}
+    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+    className="inline-block text-xl"
+  >
+    👋
+  </motion.span>
+</motion.button>
+          </div>
+        </motion.div>
+
+        {/* RIGHT */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.8 }}
+          className="w-full md:w-1/2 flex justify-center mb-10 md:mb-0 relative"
+        >
+          {/* CONTROLLED GLOW (NO OVERFLOW) */}
+          <div className="absolute w-56 h-56 sm:w-64 sm:h-64 bg-cyan-500 opacity-20 blur-2xl rounded-full"></div>
+
+          <motion.img
             src={img2}
-            alt="Saadullah"
-            className="w-32 h-32 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-full object-cover shadow-lg"
+            alt="Saad-Ullah"
+            animate={{ y: [0, -10, 0] }}
+            transition={{
+              repeat: Infinity,
+              duration: 3,
+              ease: "easeInOut",
+            }}
+            className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 object-cover rounded-full border-4 border-cyan-400 shadow-2xl"
           />
-        </div>
+        </motion.div>
       </section>
 
-      {/* OTHER SECTIONS */}
-      <section className="w-full bg-wheat">
+      {/* SECTIONS */}
+      <div className="bg-[#020617] overflow-hidden">
         <About />
-        <Skills />
-        {/* <Portfolio /> */}
         <Qualification />
+        <Skills />
+        <Portfolio />
         <Contact />
-      </section>
+      </div>
     </div>
   );
 };
+
 
 export default Home;
