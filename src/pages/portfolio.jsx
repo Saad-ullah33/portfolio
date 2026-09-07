@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 const projectsData = [
   {
     id: 1,
-    name: "E-Commerce App",
-    desc: "A full-scale MERN marketplace with secure payments and real-time inventory management.",
-    category: "MERN",
-    image: "/projects/ecommerce.jpg", // Ensure path is correct
-    tech: ["MongoDB", "Express", "React", "Node"],
+    name: "Next Property App FYP",
+    desc: "A full-stack real estate platform featuring authentication, property listings, user management, auctions, and AI-powered features.",
+    category: "Full Stack",
+    image: "/projects/FYP.png",
+    tech: ["Java", "Spring Boot", "React", "MySQL"],
     progress: 80,
   },
   {
@@ -17,8 +17,8 @@ const projectsData = [
     name: "Chat App",
     desc: "Real-time communication suite featuring private messaging and group channels.",
     category: "Backend",
-    image: "/projects/chat.jpg",
-    tech: ["Socket.io", "Redis", "Node.js"],
+    image: "/projects/chat1.jpg",
+    tech: ["Socket.io", "Java", "ThemLyf"],
     progress: 70,
   },
   {

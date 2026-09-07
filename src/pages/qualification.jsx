@@ -3,16 +3,15 @@ import { GraduationCap, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 
 const educationData = [
-  { title: "University of Central Punjab", location: "Faisalabad", period: "2022 - Present" },
+  { title: "University of Central Punjab", location: "Faisalabad", period: "2022 - 2026" },
   { title: "Punjab Group of College", location: "Faisalabad", period: "2020 - 2022" },
   { title: "Govt M.C Higher Secondary School", location: "Faisalabad", period: "2018 - 2020" },
 ];
 
 const experienceData = [
-  { title: "Full Stack Software Engineer", location: "Islamabad", period: "May 2025 - Present" },
-  { title: "Associate Software Engineer", location: "Faisalabad", period: "May 2024 - Apr 2025" },
-  { title: "Junior Backend Developer (Java)", location: "Lahore", period: "Jun 2023 - Mar 2024" },
-  { title: "Frontend Developer Intern", location: "Lahore", period: "Aug 2022 - Oct 2022" },
+  { title: "Full Stack Software Engineer", location: "Faisalabad", period: "Jan 2026 - Mar 2026" },
+  { title: "Junior Backend Developer (Java)", location: "Remote", period: "Jun 2025 - Aug 2025" },
+  { title: "Associate Software Engineer", location: "Faisalabad", period: "Sep 2024 - May 2025" },
 ];
 
 export default function Qualification() {

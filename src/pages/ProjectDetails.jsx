@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    name: "E-Commerce App",
+    name: "Next Property App FYP",
     images: [
-      "/projects/ecommerce1.jpg",
-      "/projects/ecommerce2.jpg",
+      "/projects/FYP.png",
+      "/projects/FYP1.png",
     ],
     progress: 80,
-    desc: "Full MERN stack e-commerce platform with cart, authentication, admin panel, and payment integration.",
+    desc: "Full Stack platform with authentication, admin panel, and user integration and property listing.",
   },
   {
     id: 2,
