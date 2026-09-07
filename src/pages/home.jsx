@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
-import img2 from "../assets/IMG_20260407_120910-removebg-preview (2).png";
+import image from "../assets/image.png";
 
 import About from "./about";
 import Skills from "./skills";
@@ -97,7 +97,7 @@ const Home = () => {
           <div className="absolute w-56 h-56 sm:w-64 sm:h-64 bg-cyan-500 opacity-20 blur-2xl rounded-full"></div>
 
           <motion.img
-            src={img2}
+            src={image}
             alt="Saad-Ullah"
             animate={{ y: [0, -10, 0] }}
             transition={{
